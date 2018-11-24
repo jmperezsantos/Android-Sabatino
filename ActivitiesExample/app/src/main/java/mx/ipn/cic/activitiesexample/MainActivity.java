@@ -64,8 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         Toast.LENGTH_LONG).show();
 
                 //Mostrar otra interfaz
-                Intent intent = new Intent(this,
-                        Main2Activity.class);
+                Intent intent = new Intent(this, Main2Activity.class);
 
                 //Envío de parámetros
                 intent.putExtra("unEntero", 5);

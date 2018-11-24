@@ -17,12 +17,10 @@ public class Main2Activity extends AppCompatActivity {
         Intent intent = getIntent();
         if (intent != null) {
 
-            int entero = intent
-                    .getIntExtra("unEntero", -1);
-
+            //Recepción de los parámetros
+            int entero = intent.getIntExtra("unEntero", -1);
             float flotante = intent.getFloatExtra("unFlotante",
                     -1f);
-
             String cadena = intent.getStringExtra("unaCadena");
 
             TextView tvTitle = findViewById(R.id.tvTitle);
