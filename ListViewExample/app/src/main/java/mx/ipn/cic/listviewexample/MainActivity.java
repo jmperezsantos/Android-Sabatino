@@ -2,7 +2,11 @@ package mx.ipn.cic.listviewexample;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,10 +23,30 @@ public class MainActivity extends AppCompatActivity {
 
         ListView lvLista = findViewById(R.id.lvLista);
 
-        List<SongModel> lista = generateList(10);
-        ListViewAdapter adapter = new ListViewAdapter(lista);
+        final ListViewAdapter listViewAdapter = new ListViewAdapter(generateList(10));
 
-        lvLista.setAdapter(adapter);
+        lvLista.setAdapter(listViewAdapter);
+
+        lvLista.setOnItemClickListener(
+                new AdapterView.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(AdapterView<?> adapterView, //ListView
+                                            View view, //Vista presionada
+                                            int position, //Posición del elemento presionado
+                                            long id //Id del elemento presionado
+                    ) {
+
+
+                        Adapter adapter = adapterView.getAdapter();
+
+                        SongModel song = (SongModel) adapter.getItem(position);
+
+                        Toast.makeText(getApplicationContext(),
+                                "Se presionó " + song.getName(),
+                                Toast.LENGTH_LONG).show();
+
+                    }
+                });
 
     }
 
