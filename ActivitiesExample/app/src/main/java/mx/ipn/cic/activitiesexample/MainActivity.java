@@ -73,6 +73,8 @@ public class MainActivity extends AppCompatActivity {
 
                 startActivity(intent);
 
+                //this.finish();
+
             }else {
                 //Usuario inválido
                 Toast.makeText(this,//getApplicationContext();
