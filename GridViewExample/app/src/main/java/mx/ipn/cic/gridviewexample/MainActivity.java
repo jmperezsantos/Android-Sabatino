@@ -1,7 +1,8 @@
 package mx.ipn.cic.gridviewexample;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
@@ -42,8 +43,22 @@ public class MainActivity extends AppCompatActivity {
                         , "Presionó: " + item,
                         Toast.LENGTH_LONG).show();
 
+                navegar(item);
+
             }
         });
 
     }
+
+    private void navegar(SongModel item) {
+
+        Intent intent = new Intent(this, Main2Activity.class);
+
+        intent.putExtra("DATO", item);
+
+        startActivity(intent);
+
+    }
+
+
 }
