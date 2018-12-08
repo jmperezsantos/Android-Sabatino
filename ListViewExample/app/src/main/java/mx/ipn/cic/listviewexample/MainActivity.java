@@ -36,7 +36,6 @@ public class MainActivity extends AppCompatActivity {
                                             long id //Id del elemento presionado
                     ) {
 
-
                         Adapter adapter = adapterView.getAdapter();
 
                         SongModel song = (SongModel) adapter.getItem(position);
@@ -46,7 +45,8 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.LENGTH_LONG).show();
 
                     }
-                });
+                }
+        );
 
     }
 
