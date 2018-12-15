@@ -20,6 +20,19 @@
         android:layout_height="match_parent"
         android:gravity="center"
         android:numColumns="4"
+        android:visibility="gone"
         tools:listitem="@layout/layout_gv_item" />
+
+    <HorizontalScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:id="@+id/content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" />
+
+    </HorizontalScrollView>
 
 </LinearLayout>

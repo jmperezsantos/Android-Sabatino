@@ -3,10 +3,13 @@ package mx.ipn.cic.gridviewexample;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.List;
@@ -47,6 +50,39 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        fillCarrusel();
+
+    }
+
+    private void fillCarrusel() {
+
+        LinearLayout linearLayout = findViewById(R.id.content);
+        LayoutInflater inflater = LayoutInflater.from(this);
+
+        for (final SongModel song : SongModel.defaultItems(10)) {
+
+            View view = inflater.inflate(R.layout.layout_gv_item, linearLayout, false);
+
+            TextView title = view.findViewById(R.id.tvTitle);
+
+            title.setText(song.getTitle());
+
+            view.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Toast.makeText(MainActivity.this,
+                            "Presionó " + song,
+                            Toast.LENGTH_LONG).show();
+
+                    navegar(song);
+                }
+            });
+
+            linearLayout.addView(view);
+
+        }
+
 
     }
 
